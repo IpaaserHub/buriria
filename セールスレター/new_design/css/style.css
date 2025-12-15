@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    color: #333;
+    line-height: 1.8;
+    background-color: #fdfdfd;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Layout */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* Header / Hero */
+.header {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    color: #fbbf24; /* Amber accent */
+}
+
+.headline-sub {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 0.5rem;
+}
+
+/* Sections */
+.section {
+    padding: 3rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #1e293b;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #fbbf24;
+    margin: 1rem auto 0;
+}
+
+/* Typography Utilities */
+.text-red {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.text-marker {
+    background: linear-gradient(transparent 60%, #fef3c7 60%);
+    font-weight: 700;
+    padding: 0 2px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+/* Components */
+.check-list {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.check-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.check-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #10b981; /* Green */
+    font-weight: bold;
+}
+
+.box-note {
+    background-color: #f1f5f9;
+    border-left: 5px solid #64748b;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ef4444;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(239, 68, 68, 0.4);
+    background-color: #dc2626;
+}
+
+.cta-wrapper {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+/* Testimonials */
+.testimonial {
+    background-color: #fafafa;
+    border: 1px solid #e5e5e5;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.testimonial p {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    .section {
+        padding: 2rem 1rem;
+    }
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}

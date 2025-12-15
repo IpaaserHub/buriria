@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「人生の脚本」書き換えプログラム</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #B8829B;
+            --primary-dark: #8E6278;
+            --primary-soft: #D4A5BB;
+            --accent: #C9A87C;
+            --accent-light: #E5D4B8;
+            --rose: #E8B4B8;
+            --rose-dark: #C4878C;
+            --text: #4A4A4A;
+            --text-light: #7A7A7A;
+            --bg-light: #FBF8F6;
+            --bg-cream: #F8F4F0;
+            --bg-rose: #FDF5F6;
+            --white: #FFFFFF;
+            --gold: #C9A962;
+            --gold-light: #E8D9B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.9;
+            font-size: 15px;
+            letter-spacing: 0.03em;
+            background: linear-gradient(180deg, #F5E8EB 0%, #EDE4E8 100%);
+            max-width: 430px;
+            margin: 0 auto;
+            box-shadow: 0 0 60px rgba(184, 130, 155, 0.15);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダー・ヒーローセクション */
+        .hero {
+            background: linear-gradient(180deg, #FDF5F6 0%, #F8EEF0 30%, #F2E6EA 100%);
+            padding: 50px 20px 70px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-light));
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, var(--white));
+        }
+
+        .pre-headline {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 13px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            letter-spacing: 4px;
+        }
+
+        .headline {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(20px, 5vw, 28px);
+            font-weight: 400;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+
+        .headline .highlight-blue {
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .headline .highlight-red {
+            color: var(--rose-dark);
+            font-weight: 700;
+        }
+
+        .program-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin: 25px auto;
+            max-width: 600px;
+            box-shadow: 0 15px 50px rgba(184, 130, 155, 0.12);
+            border: 1px solid rgba(201, 169, 98, 0.15);
+        }
+
+        .program-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 12px;
+            color: var(--gold);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .method-label {
+            font-size: 13px;
+            color: var(--rose-dark);
+            margin-bottom: 8px;
+        }
+
+        .program-name {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(20px, 4vw, 26px);
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--primary-dark);
+            line-height: 1.5;
+        }
+
+        .program-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 2;
+        }
+
+        .program-desc .emphasis {
+            color: var(--rose-dark);
+            font-weight: 600;
+        }
+
+        .program-desc .emphasis-blue {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* セクション共通 */
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section-white {
+            background-color: var(--white);
+            background-image: url('../LP/Gemini_Generated_Image_m5oa2ym5oa2ym5oa (1).png');
+            background-repeat: repeat-y;
+            background-position: center top;
+            background-size: 100% auto;
+        }
+
+        .section-cream {
+            background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-rose) 100%);
+        }
+
+        .section-rose {
+            background: linear-gradient(180deg, var(--bg-rose) 0%, #F8F0F4 50%, var(--bg-cream) 100%);
+        }
+
+        .section-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(18px, 4vw, 22px);
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 35px;
+            color: var(--text);
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+        }
+
+        .section-title-decorated {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title-decorated::before,
+        .section-title-decorated::after {
+            content: '———';
+            color: var(--gold-light);
+            font-size: 12px;
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        /* リード文 */
+        .lead-section {
+            padding: 50px 20px;
+            background-color: var(--white);
+            background-image: url('../LP/Gemini_Generated_Image_m5oa2ym5oa2ym5oa (1).png');
+            background-repeat: repeat-y;
+            background-position: center top;
+            background-size: 100% auto;
+            text-align: center;
+        }
+
+        .lead-text {
+            font-size: 15px;
+            line-height: 2.2;
+            margin-bottom: 30px;
+        }
+
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefit-tag {
+            background: linear-gradient(135deg, var(--white), var(--bg-cream));
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--primary-dark);
+            border: 1px solid var(--gold-light);
+            box-shadow: 0 2px 8px rgba(201, 169, 98, 0.1);
+        }
+
+        /* 問いかけセクション */
+        .question-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-rose) 100%);
+            text-align: center;
+        }
+
+        .question-text {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(15px, 4vw, 18px);
+            line-height: 2.2;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text);
+        }
+
+        .question-text .highlight {
+            background: linear-gradient(transparent 65%, var(--gold-light) 65%);
+            padding: 0 4px;
+        }
+
+        /* 悩みセクション */
+        .problems-list {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .problem-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px dashed rgba(184, 130, 155, 0.3);
+        }
+
+        .problem-item:last-child {
+            border-bottom: none;
+        }
+
+        .problem-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, var(--primary-soft), var(--primary));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            margin-top: 4px;
+            box-shadow: 0 2px 6px rgba(184, 130, 155, 0.3);
+        }
+
+        .problem-text {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* メッセージボックス */
+        .message-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px 20px;
+            margin: 30px 0;
+            box-shadow: 0 8px 30px rgba(184, 130, 155, 0.1);
+            border-left: 3px solid var(--gold);
+        }
+
+        .message-box p {
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .big-message {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(18px, 5vw, 24px);
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin: 30px 0;
+            line-height: 1.8;
+            padding: 25px 20px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(184, 130, 155, 0.1);
+            border-left: 3px solid var(--gold);
+            text-align: center;
+        }
+
+        /* コンテンツテキスト */
+        .content-text {
+            font-size: 14px;
+            line-height: 2.2;
+            margin-bottom: 25px;
+        }
+
+        .content-text.center {
+            text-align: center;
+        }
+
+        .emphasis-text {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 16px;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin: 20px 0;
+        }
+
+        /* 名前ボックス */
+        .name-box {
+            background: linear-gradient(135deg, var(--white) 0%, #FFFBF5 100%);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 35px 20px;
+            max-width: 350px;
+            margin: 30px auto;
+            box-shadow: 0 20px 60px rgba(201, 169, 98, 0.15);
+            position: relative;
+            text-align: center;
+        }
+
+        .name-box::before {
+            content: '✦';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            padding: 0 15px;
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .name-label {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 11px;
+            color: var(--gold);
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+
+        .name-text {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(20px, 5vw, 28px);
+            font-weight: 400;
+            color: var(--text);
+        }
+
+        /* プロフィールセクション */
+        .profile-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .profile-title {
+            font-size: 12px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+        }
+
+        .profile-text {
+            font-size: 13px;
+            line-height: 2.2;
+            text-align: left;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        /* 体験談セクション */
+        .testimonial-detail {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 30px rgba(184, 130, 155, 0.08);
+            border: 1px solid rgba(201, 169, 98, 0.1);
+        }
+
+        .testimonial-header {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 14px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gold-light);
+        }
+
+        .testimonial-content {
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .testimonial-highlight {
+            background: var(--bg-rose);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* 声のカード（シンプル版） */
+        .voice-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg-light) 100%);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            font-size: 13px;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .voice-card::before {
+            content: '"';
+            font-family: 'Noto Serif JP', serif;
+            font-size: 30px;
+            color: var(--gold-light);
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            line-height: 1;
+        }
+
+        /* メリットセクション */
+        .merit-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 30px rgba(184, 130, 155, 0.08);
+        }
+
+        .merit-number {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 12px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .merit-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 16px;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .merit-text {
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        /* プログラム内容 */
+        .program-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+        }
+
+        .program-section .section-title {
+            color: var(--white);
+        }
+
+        .program-content-box {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .program-item {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .program-item:last-child {
+            border-bottom: none;
+        }
+
+        .program-item-number {
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .program-item-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .program-item-desc {
+            font-size: 12px;
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        /* 価格セクション */
+        .price-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bg-rose) 0%, var(--bg-cream) 100%);
+            text-align: center;
+        }
+
+        .price-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin: 25px 0;
+            box-shadow: 0 15px 50px rgba(184, 130, 155, 0.15);
+            border: 2px solid var(--gold);
+        }
+
+        .price-label {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .price-value {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 36px;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .price-value span {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .price-note {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        /* おすすめの方リスト */
+        .recommend-list {
+            text-align: left;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .recommend-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 0;
+            font-size: 13px;
+            line-height: 1.7;
+            border-bottom: 1px dashed rgba(184, 130, 155, 0.2);
+        }
+
+        .recommend-item:last-child {
+            border-bottom: none;
+        }
+
+        .recommend-item::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Q&Aセクション */
+        .faq-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-light) 100%);
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(184, 130, 155, 0.06);
+            border: 1px solid rgba(201, 169, 98, 0.08);
+        }
+
+        .faq-question {
+            padding: 15px 18px;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: var(--white);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .faq-q {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-soft), var(--primary));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .faq-a {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 18px 15px 54px;
+            font-size: 12px;
+            line-height: 2;
+            color: var(--text-light);
+        }
+
+        /* CTAセクション */
+        .cta-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-rose) 50%, #F5E8EB 100%);
+            text-align: center;
+        }
+
+        .cta-lead {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 14px;
+            line-height: 2.3;
+            max-width: 350px;
+            margin: 0 auto 30px;
+            color: var(--text);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--rose-dark) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            box-shadow: 0 15px 40px rgba(184, 130, 155, 0.35);
+            transition: all 0.4s ease;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 50px rgba(184, 130, 155, 0.45);
+        }
+
+        .cta-sub {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        /* 追伸セクション */
+        .ps-section {
+            padding: 50px 20px;
+            background-color: var(--white);
+            background-image: url('../LP/Gemini_Generated_Image_m5oa2ym5oa2ym5oa (1).png');
+            background-repeat: repeat-y;
+            background-position: center top;
+            background-size: 100% auto;
+        }
+
+        .ps-box {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg-light) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(201, 169, 98, 0.12);
+            box-shadow: 0 10px 40px rgba(184, 130, 155, 0.08);
+        }
+
+        .ps-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--gold);
+            margin-bottom: 15px;
+            letter-spacing: 0.1em;
+            text-align: center;
+        }
+
+        .ps-text {
+            font-size: 13px;
+            line-height: 2.2;
+            color: var(--text);
+        }
+
+        /* フッター */
+        footer {
+            padding: 30px 20px;
+            background: linear-gradient(180deg, var(--primary-dark) 0%, #5A4A5A 100%);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            font-size: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        /* ユーティリティ */
+        .mt-20 { margin-top: 20px; }
+        .mt-30 { margin-top: 30px; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-30 { margin-bottom: 30px; }
+        .text-center { text-align: center; }
+        .text-gold { color: var(--gold); }
+        .text-primary { color: var(--primary-dark); }
+        .font-serif { font-family: 'Noto Serif JP', serif; }
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold-light);
+            margin: 30px auto;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 430px) {
+            .hero {
+                padding: 40px 15px 60px;
+            }
+            .program-box {
+                padding: 25px 18px;
+            }
+            .section {
+                padding: 50px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container">
+            <p class="pre-headline">がんばっても</p>
+            <h1 class="headline">
+                <span class="highlight-blue">報われない結末</span>を<br>
+                何度もくり返してきた<br>
+                <span class="highlight-red">あなた</span>へ
+            </h1>
+
+            <div class="program-box">
+                <p class="program-title">あなたの「お名前」を書くだけで、望む未来へシフトする</p>
+                <p class="method-label">新感覚のセルフケアメソッド</p>
+                <h2 class="program-name">『人生の脚本』<br>書き換えプログラム</h2>
+                <p class="program-desc">
+                    <span class="emphasis-blue">同じ結末のくり返し</span>から抜け出し、<br>
+                    <span class="emphasis">「前よりラクに生きられる私」</span>へシフトしていく<br>
+                    <strong>90日間</strong>プログラム
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- リードセクション -->
+    <section class="lead-section">
+        <div class="container">
+            <p class="lead-text">
+                あなたの"お名前"にそっと光を灯し、<br>
+                長年くり返してきた<strong>「報われない私」</strong>の脚本を書き換えながら、<br><br>
+                <strong>「前よりラクに、前よりうまく」</strong><br>
+                心の底から安心して生きられる未来へと<br>
+                物語をシフトしていく
+            </p>
+
+            <div class="benefits-grid">
+                <span class="benefit-tag">自己否定ストップ</span>
+                <span class="benefit-tag">心がふっと軽くなる</span>
+                <span class="benefit-tag">毎日への安心感</span>
+                <span class="benefit-tag">無理しない変化</span>
+                <span class="benefit-tag">恋愛・お金・仕事の安定</span>
+                <span class="benefit-tag">同じ失敗パターンから卒業</span>
+                <span class="benefit-tag">私らしい選択</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 問いかけセクション -->
+    <section class="question-section">
+        <div class="container">
+            <p class="question-text">
+                もし、<span class="highlight">「名前を書く」だけ</span>で<br>
+                長年くり返してきた<br>
+                「報われない私」の脚本から抜け出し、<br><br>
+                前よりラクに、前よりうまく<br>
+                回り始める未来を選べるとしたら……<br><br>
+                <strong>あなたは、どんな毎日を生きたいですか？</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- 悩みセクション -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="problems-list">
+                <div class="problem-item">
+                    <span class="problem-icon">✓</span>
+                    <p class="problem-text">「今回はうまくいくはず」と思っても、結局また同じ結末になってしまう……</p>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">✓</span>
+                    <p class="problem-text">ネガティブになりたくないのに、自分を責める言葉ばかり浮かんでくる……</p>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">✓</span>
+                    <p class="problem-text">「私さえ我慢すればいい」と思ってしまうクセがやめられない……</p>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">✓</span>
+                    <p class="problem-text">本や動画で自己啓発を試しても、そのときだけで、すぐ元に戻ってしまう……</p>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">✓</span>
+                    <p class="problem-text">「このまま歳だけ重ねていくのかな」と、胸の奥がひゅっと寂しくなる……</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 小さな習慣セクション -->
+    <section class="section section-rose">
+        <div class="container text-center">
+            <p class="content-text">
+                頑張らなくても続けられる<strong>「小さな習慣」</strong>と、<br>
+                長年くり返してきたパターンを<br>
+                そっと書き換える<strong>『新感覚お手軽メソッド』</strong>を手に入れ、<br><br>
+                今こそ、自分を責める生き方から静かに抜け出し、<br>
+                <strong>安心感と自分らしさに満ちた未来</strong>を<br>
+                しっかりと受け取ってください。
+            </p>
+        </div>
+    </section>
+
+    <!-- 新しい自分を手にしたいあなたへ -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-title-decorated text-center">
+                <span>人生の脚本を書き換え</span><br>
+                新しい自分を手にしたいあなたへ
+            </div>
+
+            <p class="content-text">
+                これまで、LINE登録、動画セミナーへのご参加、そして、このページにたどり着いてくださって、本当にありがとうございます。
+            </p>
+
+            <p class="content-text">
+                きっとあなたはこれまでに、<br>
+                「がんばっているのに、なぜか報われない」<br>
+                「また同じような結末になってしまった…」<br><br>
+                そんな思いを、何度も味わってこられたのではないでしょうか。
+            </p>
+
+            <div class="big-message">
+                うまくいかなかったのは、<br>
+                あなたがダメだったからではありません。
+            </div>
+
+            <p class="content-text">
+                その裏側には、あなたの努力や性格とは別のところで、子どもの頃から少しずつ染みついてきた<strong>「ものの見方」</strong>や、無意識のうちに自分にかけてきた<strong>「決めつけ」</strong>がありました。
+            </p>
+
+            <p class="content-text">
+                それが、恋愛でも仕事でも人間関係でも、いつも似たようなパターンへと引き戻していただけなのかもしれません。
+            </p>
+
+            <p class="content-text">
+                そして今、このレターを読んでいるということは、<br>
+                「もう同じ結末はくり返したくない」<br>
+                「本当の自分で、もっとラクに生きたい」<br>
+                と、心のどこかで感じている証拠です。
+            </p>
+        </div>
+    </section>
+
+    <!-- 人生が停滞していた理由 -->
+    <section class="section section-cream">
+        <div class="container">
+            <div class="section-title-decorated text-center">
+                あなたの人生が停滞していた<br>たった一つの理由
+            </div>
+
+            <p class="content-text center">
+                「頑張っているのに、なぜかいつも報われない……」<br>
+                「どうして私だけ、いつも同じ結末を迎えてしまうのだろう」<br>
+                「同じ失敗をして、大事な場面で躓いてしまう……」
+            </p>
+
+            <p class="content-text">
+                あなたがこれまで、誰にも言えずに抱えてきた思いや長年の苦しみ。<br><br>
+                その原因は、あなたの努力不足でも、性格のせいでも、ましてや運のせいでもありませんでした。
+            </p>
+
+            <p class="content-text">
+                あなたが頑張っても報われなかった本当の理由。<br>
+                それは……、
+            </p>
+
+            <div class="big-message">
+                生まれた時から無意識に手にしていた<br>
+                <span class="text-gold">『人生の脚本』</span><br>
+                の存在にあったんです。
+            </div>
+
+            <p class="content-text">
+                『人生の脚本』は、あなたが意識できない心の奥深くで動いているプログラムのようなもの。
+            </p>
+
+            <div class="message-box">
+                <p><strong>【恋愛の脚本の例】</strong><br>
+                「尽くしすぎて、大切にされなくなるヒロイン」</p>
+            </div>
+
+            <div class="message-box">
+                <p><strong>【家族の脚本の例】</strong><br>
+                「親の期待に応えなければ、愛されない」</p>
+            </div>
+
+            <div class="message-box">
+                <p><strong>【お金の脚本の例】</strong><br>
+                「頑張って収入を増やしても、経済的な安心は手に入らない」</p>
+            </div>
+
+            <p class="content-text">
+                あなたは、この脚本に書かれた通りの役を、気づかないうちに何度も生きてきただけなのです。
+            </p>
+        </div>
+    </section>
+
+    <!-- 人生の脚本を書き換える方法 -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-title-decorated text-center">
+                人生の脚本を書き換える<br>簡単な方法とは？
+            </div>
+
+            <p class="content-text">
+                この『人生の脚本』は、あなた自身の手で書き換えることが可能なんです。それも驚くほどシンプルな方法で……。
+            </p>
+
+            <p class="content-text center">
+                難しい知識も、気力を振り絞るような努力も必要ありません。<br>
+                それは……、
+            </p>
+
+            <div class="name-box">
+                <p class="name-label">ONLY ONE KEY</p>
+                <p class="name-text">ある特別な方法で<br>あなたの「お名前を書く」<br>こと</p>
+            </div>
+
+            <p class="content-text">
+                この小さくシンプルな習慣を始めるだけで、難しい心のワークや、過去の辛い経験を何度も思い出すことなく脚本の根本的な書き換えが始まり、あなたの人生が、本来あるべき輝きを取り戻していくのです。
+            </p>
+        </div>
+    </section>
+
+    <!-- 喜びの声 -->
+    <section class="section section-rose">
+        <div class="container">
+            <p class="section-title">すでに多くの方から<br>喜びの声が届いています</p>
+
+            <div class="voice-card">イライラや不安に流されず、心穏やかに暮らせるようになりました。</div>
+            <div class="voice-card">彼との関係がふっと楽になり、気負いが無くなって会話が増えました</div>
+            <div class="voice-card">長年苦手だった親との関係、特に父親への感覚が変わり、父親も優しくなりました</div>
+            <div class="voice-card">安心して一緒にいられるパートナーができました</div>
+            <div class="voice-card">お金への不安がやわらぎ、心が落ち着いて過ごせるようになりました</div>
+            <div class="voice-card">仕事の幅も広がり、収入面も向上して充実しています</div>
+            <div class="voice-card">気付いたら自分を責めるクセが減り、生きるのが少しずつ楽になってきました</div>
+        </div>
+    </section>
+
+    <!-- なぜ名前を書くだけで好転するのか -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-title-decorated text-center">
+                なぜ、「名前を書く」だけで<br>人生が好転していくのか？
+            </div>
+
+            <p class="content-text">
+                それは、あなたの名前が、人生の脚本に光を当て、古い脚本を書き換える<strong>スイッチになる</strong>からです。
+            </p>
+
+            <p class="content-text">
+                人生の中で何度も呼ばれてきたあなたのお名前には、「自分そのもの」を呼び起こす力があります。
+            </p>
+
+            <p class="content-text">
+                そして、その名前を「書く」という行為には、あなたの心と脳に"具体的な指示"を送る力があります。
+            </p>
+
+            <div class="message-box">
+                <p>
+                    <strong>書くことで起きる3つのこと：</strong><br><br>
+                    ① 書くことで、モヤモヤした感情が整理されていく<br><br>
+                    ② 目で見ることで、「新しい自分」のイメージが何度も脳にインプットされる<br><br>
+                    ③ 手を動かすことで、「その自分を選び直す」という小さな行動が積み重なる
+                </p>
+            </div>
+
+            <p class="content-text">
+                こうして少しずつ、「苦しい私」ではなく、「大切に扱われていい私」へと、あなたの物語そのものが静かに書き換わり始めるのです。
+            </p>
+        </div>
+    </section>
+
+    <!-- プロフィールセクション -->
+    <section class="profile-section">
+        <div class="container">
+            <p class="profile-title">"人生を整える脚本家"</p>
+            <p class="text-center mb-20" style="font-size: 12px; color: var(--text-light);">『人生の脚本』書き換えプログラム開発者</p>
+            <h3 class="profile-name">龍輝</h3>
+
+            <div class="profile-text">
+                <p>「頑張っているのに、なぜか報われない」という人生のくり返しパターンを専門に扱い、その背景にある無意識の思考・行動パターン（=人生の脚本）をひも解いてきた専門家。</p><br>
+
+                <p>かつてはレストランオーナーとして必死に働きながらも、約2,000万円の借金、詐欺被害、震災による自宅喪失など、何度も大きな挫折を経験。</p><br>
+
+                <p>「努力だけでは越えられない壁」の正体を探り続ける中で、「無意識のパターン」をやさしく書き換える独自メソッドに辿り着く。</p><br>
+
+                <p>これまでに延べ<strong>2,000人以上</strong>のクライアントをサポートし、「難しいワークも精神修行もいらないのに、少しずつ生きるのがラクになった」と30〜50代の女性を中心に支持を集めている。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 龍輝のストーリー -->
+    <section class="section section-cream">
+        <div class="container">
+            <div class="section-title-decorated text-center">
+                私の人生を好転させた<br>『人生の脚本』を書き換えるまでのストーリー
+            </div>
+
+            <p class="content-text">
+                昔の僕は、レストランのオーナーシェフでした。朝から深夜まで働き、夜中はアルバイトまでして休みなく頑張っていたんです。
+            </p>
+
+            <p class="content-text">
+                にも関わらず、借金は2,000万円まで膨らみました。そして、畳み掛けるようにして詐欺、震災、自宅喪失……。
+            </p>
+
+            <p class="content-text">
+                「なぜこんなに頑張っているのに報われないのか」と、ずっと自分を責め続けていました。
+            </p>
+
+            <p class="content-text">
+                そこから心理学や自己啓発、スピリチュアルまで、考えられるものは一通り学びました。でも一時的には変わっても、気付くといつも同じ「行動レベル」に引き戻される……。
+            </p>
+
+            <div class="big-message">
+                困難の原因は「意識的な努力」や「行動」を変えるだけではどうにもならない
+            </div>
+
+            <p class="content-text">
+                何年も試行錯誤を重ねる中で行き着いたのが、「名前」という一点でした。
+            </p>
+
+            <p class="content-text">
+                私自身、若年期の病弱やオーナーシェフ時代の苦労を乗り越え、今は豊かな暮らしと健康な体を手に入れ、趣味の格闘技も楽しめるようになりました。
+            </p>
+
+            <p class="content-text center">
+                <strong>難しいワークも、痛みをえぐるような努力も、もういりません。</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- 3つのメリット -->
+    <section class="section section-white">
+        <div class="container">
+            <p class="section-title">プログラムに参加する<br>3つのメリット</p>
+
+            <div class="merit-box">
+                <p class="merit-number">———メリット1———</p>
+                <p class="merit-title">名前を書く「かんたんメソッド」で<br>がんばらなくても心が軽くなる</p>
+                <p class="merit-text">
+                    必要なのは、ただひとつ。あなたの『お名前』をある特別な方法で「書く」こと。それだけでスタートできます。<br><br>
+                    夜寝る前の5分、朝のコーヒーを飲みながらの数分。そんな小さな時間に、自分の名前を書いてあげるだけで、長年まとってきた「頑張らなきゃ」「私が悪い」が、少しずつゆるんでいきます。
+                </p>
+            </div>
+
+            <div class="merit-box">
+                <p class="merit-number">———メリット2———</p>
+                <p class="merit-title">『人生の脚本』に直接アプローチして<br>「同じ失敗パターン」から卒業できる</p>
+                <p class="merit-text">
+                    このプログラムで行うのは、「がんばって自分を変えること」ではなく、その脚本そのものをそっと書き換えていくことです。<br><br>
+                    恋愛も仕事も、お金や心の状態も、「前よりラクに、前よりうまく」流れ出す瞬間が増えていきます。
+                </p>
+            </div>
+
+            <div class="merit-box">
+                <p class="merit-number">———メリット3———</p>
+                <p class="merit-title">安心のサポート体制で<br>「また元に戻るかも」という不安から守られる</p>
+                <p class="merit-text">
+                    このプログラムは、変化のきっかけを渡して"終わり"ではありません。<br><br>
+                    ひとりで抱え込まずに相談できる環境があること。その安心感こそが、これからの人生の"新しい土台"を育ててくれるのです。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- プログラム紹介セクション -->
+    <section class="program-section">
+        <div class="container">
+            <p class="section-title">プログラム概要</p>
+
+            <div class="program-content-box">
+                <div class="program-item">
+                    <p class="program-item-number">01</p>
+                    <p class="program-item-title">脚本書き換えツール（WEBサービス）</p>
+                    <p class="program-item-desc">24時間いつでも、あなたの脚本を書き換え続けるオンラインシステム。スマホからガイドに沿って入力するだけで、古い脚本に「もう同じ結末は選ばない」という編集指示を送り続けます。</p>
+                </div>
+                <div class="program-item">
+                    <p class="program-item-number">02</p>
+                    <p class="program-item-title">特別アファメーション・ブック（PDF）</p>
+                    <p class="program-item-desc">恋愛・お金・家族・自己肯定感など、テーマ別に古い思い込みをやわらげていくための言葉をまとめた300ページ級のPDFブック。印刷して書き込んでも、ノートに書き写してもOK。</p>
+                </div>
+                <div class="program-item">
+                    <p class="program-item-number">03</p>
+                    <p class="program-item-title">90日間のメールサポート</p>
+                    <p class="program-item-desc">書き換えを続けるなかで出てくる不安や疑問を、開発者の龍輝に直接相談できるサポート。回数制限なし、期間中いつでも質問OK。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ビフォーアフター -->
+    <section class="section section-cream">
+        <div class="container">
+            <p class="section-title">人生の脚本を書き換えた人の<br>『ビフォーアフター』</p>
+
+            <div class="testimonial-detail">
+                <p class="testimonial-header">1. 体や心が「重い」状態から「軽い」に変化した物語　Tさま</p>
+                <div class="testimonial-content">
+                    <p>海外事業の失敗、そして2回目の離婚……。1年半ほど前から非常にストレスフルな状況下が続き、心身ともにズタズタでした。</p>
+                    <div class="testimonial-highlight">
+                        プログラムに参加したところ、最初はお酒の量がグッと減ってきました。そして、連鎖するように少しずつ前向きになり、仕事も今までだと考えられないくらいスムーズに行くようになってきたんです。<br><br>
+                        さらに、プライベートでは信頼できて好きな女性と出会えたんです。たった3ヶ月でガラッと人生が変わりました。
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-detail">
+                <p class="testimonial-header">2. 人間関係での前向きな変化を遂げた物語　Kさま</p>
+                <div class="testimonial-content">
+                    <p>職場でモラハラ上司の攻撃を受け、プライベートではモラハラ気質の恋人の顔色をうかがう。他人に完全に支配され、私は「うつ状態」に陥り、心身ともに疲弊していました。</p>
+                    <div class="testimonial-highlight">
+                        プログラムに参加したところ、予想もしない形での変化が……。会社が「私の契約を更新しない」という判断を下したことで、モラハラ上司・同僚と関わらずに済むことになったのです。<br><br>
+                        さらに、モラハラをしてきていた当時の恋人から、関係解消を告げられました。私の人生が、ようやく本当の意味で始まった気がしています。
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-detail">
+                <p class="testimonial-header">3. ネガティブな感情や制限から解放された物語　Sさま</p>
+                <div class="testimonial-content">
+                    <p>「完璧でなければ意味がない」という脚本に縛られていた以前の私は、息苦しさの中でもがいていました。「〜せねばならない」という謎の焦りに常に追われていました。</p>
+                    <div class="testimonial-highlight">
+                        プログラムを受けてからの変化は、「呪縛からの解放」でした。常に背中を押していた謎の焦りが嘘のように消え、「1日3分でも進めばOK」と、不完全な自分に心から「許可」を出せるようになったのです。<br><br>
+                        重たい鎧を脱ぎ捨てた今、私はとても楽な気持ちで、人生を軽やかに歩めています。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 価格セクション -->
+    <section class="price-section">
+        <div class="container">
+            <p class="section-title">参加費のご案内</p>
+
+            <p class="content-text center">
+                これまで受講された方から<br>
+                「100万円以上の価値がある」<br>
+                という声をいただいている<br>
+                このプログラムですが……
+            </p>
+
+            <div class="price-box">
+                <p class="price-label">特別価格</p>
+                <p class="price-value">55,000<span>円（税込）</span></p>
+                <p class="price-note">
+                    分割払いにも対応しております<br>
+                    （3回払い：初月17,000円、2〜3ヶ月目19,000円）
+                </p>
+            </div>
+
+            <p class="content-text" style="font-size: 12px;">
+                ※90日以降も継続される場合は、会員として永年使いたい放題（会員費：12,000円/月）
+            </p>
+        </div>
+    </section>
+
+    <!-- おすすめの方 -->
+    <section class="section section-white">
+        <div class="container">
+            <p class="section-title">このプログラムが<br>おすすめの方</p>
+
+            <div class="recommend-list">
+                <div class="recommend-item">一生懸命頑張っているのに、なぜか望む結果が得られない人</div>
+                <div class="recommend-item">恋愛で「尽くしすぎ」パターンを繰り返す人</div>
+                <div class="recommend-item">相手を優先し、自分の気持ちを後回しにしてきた人</div>
+                <div class="recommend-item">親子関係の根深い問題から解放されたい人</div>
+                <div class="recommend-item">いつも、同じ職場や人間関係のトラブルを抱える人</div>
+                <div class="recommend-item">頑張って収入が増えても、経済的に安心感が得られない人</div>
+                <div class="recommend-item">自己肯定感が低く、自分を責める癖を直したい人</div>
+                <div class="recommend-item">従来の自己啓発や努力で変われなかった人</div>
+                <div class="recommend-item">表面的な解決ではなく、本気で人生を書き換えたいと願う人</div>
+                <div class="recommend-item">過去の脚本に縛られるのをやめ、「人生の主役」になりたい人</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&Aセクション -->
+    <section class="faq-section">
+        <div class="container">
+            <p class="section-title">よくあるご質問</p>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-q">Q</span>
+                    <span>本当に名前を書くだけでいいの？</span>
+                </div>
+                <p class="faq-answer">はい、本当に「書くだけ」で大丈夫なんです。あなたが頭でいくら考えても変わらなかったのは、努力の方向が違っていただけだからです。私たちは、あなたの意識が届かない心の奥にある「古い脚本」に、直接アプローチします。</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-q">Q</span>
+                    <span>パソコンが苦手でも大丈夫？</span>
+                </div>
+                <p class="faq-answer">全く心配いりません。むしろ、簡単すぎて驚かれるかもしれません。WEBサービスは、例えるなら「24時間、自動で書き換えを続けてくれる、あなた専用のお守り」のようなものです。難しい設定や操作は一切ありません。</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-q">Q</span>
+                    <span>怪しくない？（宗教じゃない？）</span>
+                </div>
+                <p class="faq-answer">このプログラムは、特定の信仰や宗教を勧めるものでは一切ありません。私が提供しているのは、あなたの人生に宿命づけられた「古い人生の脚本」を、再現性のある仕組みに基づいて、『新しい人生の脚本』へと書き換えるメソッドです。</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-q">Q</span>
+                    <span>効果がなかったら…？</span>
+                </div>
+                <p class="faq-answer">このプログラムは90日かけて土台を整える前提で作っています。「いつもより落ち込みから立ち直るのが早くなった」「お金の不安で頭がいっぱいだったのが、ふっと緩む時間が増えた」といった小さな変化の積み重ねを目安にしてください。すでに2,000人以上の方が変化を体験されています。</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-q">Q</span>
+                    <span>プログラムを何巡もしたほうが良いですか？</span>
+                </div>
+                <p class="faq-answer">潜在的に荷物が多い方は、3巡～5巡ほど行うことが望ましいです。一巡で劇的に変化が起こるのは、もともとクリアな方です。</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-q">Q</span>
+                    <span>90日以降も浄化ツールを継続して使えますか？</span>
+                </div>
+                <p class="faq-answer">90日以降もご継続される場合は、会員としてご継続される方のみ、永年使いたい放題です（会員費：12,000円/月）。</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-q">Q</span>
+                    <span>カリキュラム（ひな型）の印刷は必要ですか？</span>
+                </div>
+                <p class="faq-answer">カリキュラムはテーマとひな型の枚数が多い（300p以上）ため、あなたにとって必要な箇所をご自宅で印刷していただく形になります。手書きでそのまま書き写しても同じ効果があります。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="container">
+            <p class="cta-lead">
+                もしあなたが……<br><br>
+                もう自分を責めるのをやめて、<br>
+                過去の脚本に縛られるのをやめて、<br>
+                本来のあなたが主役の<br>
+                新しい人生の物語を始めたい——<br><br>
+                と少しでも思うなら、<br>
+                今すぐこのプログラムにご参加ください。
+            </p>
+
+            <a href="#" class="cta-button">
+                今すぐ「人生の脚本」を書き換える
+            </a>
+
+            <p class="cta-sub">あなたの新しい人生は、もうすぐそこまで来ています。</p>
+        </div>
+    </section>
+
+    <!-- 追伸セクション -->
+    <section class="ps-section">
+        <div class="container">
+            <div class="ps-box">
+                <h3 class="ps-title">———追伸———<br>龍輝からあなたへのメッセージ</h3>
+                <p class="ps-text">
+                    ここまで読んでくださり、ありがとうございます。<br><br>
+                    私自身も最初は、この「名前を書く」だけというシンプルなメソッドが、人生の脚本という根深い部分をどこまで変えられるのか、と半信半疑な気持ちもありました。<br><br>
+                    しかし、このメソッドを通して私自身の心と現実の変化とともに、これまで参加してくださった2,000人以上の方のコメントを見ることで、このメソッドがもたらすエネルギーの強さを確信するに至ったのです。<br><br>
+                    このプログラムは、「もっと頑張る」ためのものではありません。頑張り続けて疲れてしまったあなたが、自分を責める脚本からそっと降りて、「大切に扱われていい私」という新しい物語を紡ぐための方法として作りました。<br><br>
+                    もし今の人生に「このまま終わりたくない」と感じているのなら、その小さな声こそが書き換えのスタートラインです。<br><br>
+                    「『人生の脚本』書き換えプログラム」で、その一歩をご一緒できたら、とてもうれしいです。<br><br>
+                    最後までお読みくださり、本当にありがとうございました。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 「人生の脚本」書き換えプログラム All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

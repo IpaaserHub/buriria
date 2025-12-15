@@ -1,0 +1,54 @@
+<w:left w:space="0" w:sz="0" w:val="nil"/><w:bottom w:space="0" w:sz="0" w:val="nil"/><w:right w:space="0" w:sz="0" w:val="nil"/><w:between w:space="0" w:sz="0" w:val="nil"/></w:pBdr><w:shd w:fill="auto" w:val="clear"/><w:spacing w:after="0" w:before="0" w:line="276" w:lineRule="auto"/><w:ind w:left="0" w:right="0" w:firstLine="0"/><w:jc w:val="left"/><w:rPr><w:rFonts w:ascii="Arial" w:cs="Arial" w:eastAsia="Arial" w:hAnsi="Arial"/><w:b w:val="0"/><w:bCs w:val="0"/><w:i w:val="0"/><w:iCs w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="22"/><w:szCs w:val="22"/><w:u w:val="none"/><w:shd w:fill="auto" w:val="clear"/><w:vertAlign w:val="baseline"/></w:rPr><w:sectPr><w:pgSz w:h="16834" w:w="11909" w:orient="portrait"/><w:pgMar w:bottom="1440" w:top="1440" w:left="1440" w:right="1440" w:header="720" w:footer="720"/><w:pgNumType w:start="1"/></w:sectPr></w:pPr><w:bookmarkStart w:colFirst="0" w:colLast="0" w:name="_vgef1j4kog6v" w:id="0"/><w:bookmarkEnd w:id="0"/><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rFonts w:ascii="Arial Unicode MS" w:cs="Arial Unicode MS" w:eastAsia="Arial Unicode MS" w:hAnsi="Arial Unicode MS"/><w:b w:val="0"/><w:bCs w:val="0"/><w:i w:val="0"/><w:iCs w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="52"/><w:szCs w:val="52"/><w:u w:val="none"/><w:shd w:fill="auto" w:val="clear"/><w:vertAlign w:val="baseline"/><w:rtl w:val="0"/></w:rPr><w:t xml:space="preserve">タブ 1
+　　　　　　　　　 　業界トップレベルのカウンセラーによる
+　　　　　　　　　　”心を整えて生きる”ための体験型セミナー
+愛
+豊かさ
+人とのつながり
+自分への信頼
+   ”人生、こんなはずじゃない”と不安と不満を感じる”あなた”へ
+「毎日が不安→ワクワク」「行動力が増して、出来ない→出来るに変わった！」
+「新しい良縁が増えた！」「心身が軽くなって悩みが消えた」
+などの成果が続出！
+ ストレス社会にも負けない！
+誰でもスグにできる”ある方法”で
+何にも縛られない
+　あなたが『望む未来』へと進みませんか？
+「恋愛・人間関係が
+上手くいかない……」
+「頑張っているのに
+報われない……」
+「心身ともに
+安定しない……」
+「変わりたいのに動けない……」
+「他人の評価が怖い……」
+行動力がなくても簡単にできる
+　チューニングテクニックで
+”満足できない今”を抜け出す！
+　
+</w:pPr><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rFonts w:ascii="Arial" w:cs="Arial" w:eastAsia="Arial" w:hAnsi="Arial"/><w:b w:val="1"/><w:i w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="28"/><w:vertAlign w:val="baseline"/></w:rPr><w:t xml:space="preserve">　 　体験型セミナーに参加して
+</w:pPr><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rFonts w:ascii="Arial" w:cs="Arial" w:eastAsia="Arial" w:hAnsi="Arial"/><w:b w:val="1"/><w:i w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="28"/><w:vertAlign w:val="baseline"/></w:rPr></w:r><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rFonts w:ascii="Arial" w:cs="Arial" w:eastAsia="Arial" w:hAnsi="Arial"/><w:b w:val="1"/><w:i w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="28"/><w:vertAlign w:val="baseline"/></w:rPr><w:t xml:space="preserve">   本来のあなたと”リコネクト”する
+<w:left w:space="0" w:sz="0" w:val="nil"/><w:bottom w:space="0" w:sz="0" w:val="nil"/><w:right w:space="0" w:sz="0" w:val="nil"/><w:between w:space="0" w:sz="0" w:val="nil"/></w:pBdr><w:shd w:fill="auto" w:val="clear"/><w:spacing w:after="0" w:before="0" w:line="276" w:lineRule="auto"/><w:ind w:left="0" w:right="0" w:firstLine="0"/><w:jc w:val="left"/><w:rPr/><w:sectPr><w:type w:val="nextPage"/><w:pgSz w:h="16834" w:w="11909" w:orient="portrait"/><w:pgMar w:bottom="1440" w:top="1440" w:left="1440" w:right="1440" w:header="720" w:footer="720"/><w:pgNumType w:start="1"/></w:sectPr></w:pPr><w:bookmarkStart w:colFirst="0" w:colLast="0" w:name="_4r24gfj4u2" w:id="1"/><w:bookmarkEnd w:id="1"/><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rFonts w:ascii="Arial Unicode MS" w:cs="Arial Unicode MS" w:eastAsia="Arial Unicode MS" w:hAnsi="Arial Unicode MS"/><w:b w:val="0"/><w:bCs w:val="0"/><w:i w:val="0"/><w:iCs w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="52"/><w:szCs w:val="52"/><w:u w:val="none"/><w:shd w:fill="auto" w:val="clear"/><w:vertAlign w:val="baseline"/><w:rtl w:val="0"/></w:rPr><w:t xml:space="preserve">タブ 2
+       「気持ちを素直に伝え合いたい……」
+「不安に振り回されず、豊かさを感じたい……」
+　<w:t xml:space="preserve">「気を使いすぎず、支え合える関係を大切にしたい……」
+　<w:t xml:space="preserve">「うまくいかない時も、自分に優しく声をかけたい……」
+　　  そんな願いを少しでも感じているあなたに送る
+　”心を整えて生きる”ための体験型セミナー
+　    変化の多い今だからこそ、
+    見つめ直したい『本来の自分への還り方』
+　　　参加者2000人以上、顧客満足度90％を超える
+　<w:tab/><w:tab/><w:t xml:space="preserve">　業界トップクラスのカウンセラーによる
+恋愛
+お金
+家族関係
+自己肯定感
+　”あなた”が感じている不安、悩みを解消するための
+ユルっと”習慣化”プログラム
+     どんなときも自分を信じて進める
+「心の軸を育てる」
+　”たったひとつ”の簡単な方法を
+　　　　　　身につけるために
+その一歩を今から踏み出してみませんか？
+</w:pPr><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rFonts w:ascii="Arial" w:cs="Arial" w:eastAsia="Arial" w:hAnsi="Arial"/><w:b w:val="1"/><w:i w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="28"/><w:vertAlign w:val="baseline"/></w:rPr><w:t xml:space="preserve">　 　体験型セミナーに参加して
+</w:pPr><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rFonts w:ascii="Arial" w:cs="Arial" w:eastAsia="Arial" w:hAnsi="Arial"/><w:b w:val="1"/><w:i w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="28"/><w:vertAlign w:val="baseline"/></w:rPr></w:r><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rFonts w:ascii="Arial" w:cs="Arial" w:eastAsia="Arial" w:hAnsi="Arial"/><w:b w:val="1"/><w:i w:val="0"/><w:smallCaps w:val="0"/><w:strike w:val="0"/><w:color w:val="000000"/><w:sz w:val="28"/><w:vertAlign w:val="baseline"/></w:rPr><w:t xml:space="preserve">   本来のあなたと”リコネクト”する
+  
