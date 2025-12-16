@@ -14,15 +14,22 @@
             --navy-light: #2A3F6A;
             --navy-dark: #0F1A2E;
 
-            /* サブカラー: フォレストグリーン（安心、休息、安全）*/
-            --green: #2D5A3D;
-            --green-light: #3A7A4F;
+            /* サブカラー: セージグリーン（安心、休息、安全）*/
+            --green: #5A7A6B;
+            --green-light: #7A9A8B;
             --green-pale: #E8F5EC;
 
-            /* アクセントカラー: マットゴールド（高級感、価値、希望）*/
-            --gold: #B8860B;
-            --gold-light: #D4A520;
-            --gold-dark: #96700A;
+            /* アクセントカラー: ローズゴールド（高級感、価値、女性らしさ）*/
+            --gold: #B76E79;
+            --gold-light: #D4A5A5;
+            --gold-dark: #96565E;
+            --rose-gold: #E8C4C4;
+            --rose-gold-light: #F5E6E8;
+
+            /* フェミニンカラー */
+            --blush: #FDF5F5;
+            --lavender: #F5F0F7;
+            --cream: #FFF9F5;
 
             /* ベースカラー: クリーンホワイト */
             --white: #FFFFFF;
@@ -34,8 +41,8 @@
             --text-medium: #555555;
             --text-light: #777777;
 
-            --shadow: 0 4px 20px rgba(27, 42, 74, 0.1);
-            --shadow-strong: 0 8px 30px rgba(27, 42, 74, 0.15);
+            --shadow: 0 4px 20px rgba(183, 110, 121, 0.1);
+            --shadow-strong: 0 8px 30px rgba(183, 110, 121, 0.15);
         }
 
         * {
@@ -167,6 +174,141 @@
 
         .gradient-gold {
             background: linear-gradient(180deg, var(--white) 0%, rgba(184, 134, 11, 0.05) 50%, var(--white) 100%);
+        }
+
+        /* フェミニングラデーション */
+        .gradient-blush {
+            background: linear-gradient(180deg, var(--white) 0%, var(--blush) 30%, var(--rose-gold-light) 70%, var(--white) 100%);
+        }
+
+        .gradient-lavender {
+            background: linear-gradient(180deg, var(--white) 0%, var(--lavender) 50%, var(--white) 100%);
+        }
+
+        .gradient-cream {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 50%, var(--blush) 100%);
+        }
+
+        /* 優雅な曲線セパレーター */
+        .curve-top {
+            position: relative;
+        }
+
+        .curve-top::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: inherit;
+            clip-path: ellipse(60% 100% at 50% 100%);
+        }
+
+        .curve-bottom {
+            position: relative;
+        }
+
+        .curve-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: inherit;
+            clip-path: ellipse(60% 100% at 50% 0%);
+            z-index: 1;
+        }
+
+        /* 柔らかい波形セパレーター */
+        .soft-wave-top {
+            position: relative;
+        }
+
+        .soft-wave-top::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C300,80 600,80 900,40 C1050,15 1150,30 1200,0 L1200,0 L0,0 Z' fill='%23FAFAFA'/%3E%3C/svg%3E") top/cover no-repeat;
+            z-index: 1;
+        }
+
+        .soft-wave-bottom {
+            position: relative;
+        }
+
+        .soft-wave-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,120 C300,40 600,40 900,80 C1050,105 1150,90 1200,120 L1200,120 L0,120 Z' fill='%23FAFAFA'/%3E%3C/svg%3E") bottom/cover no-repeat;
+            z-index: 1;
+        }
+
+        /* 繊細なフローラル風装飾 */
+        .floral-accent {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floral-accent::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(ellipse at center, var(--rose-gold-light) 0%, transparent 70%);
+            opacity: 0.5;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .floral-accent::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: -30px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(ellipse at center, var(--lavender) 0%, transparent 70%);
+            opacity: 0.5;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* キラキラ装飾 */
+        .sparkle-bg {
+            position: relative;
+        }
+
+        .sparkle-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 15% 25%, rgba(212, 165, 165, 0.3) 0%, transparent 2%),
+                radial-gradient(circle at 85% 15%, rgba(212, 165, 165, 0.25) 0%, transparent 1.5%),
+                radial-gradient(circle at 45% 75%, rgba(212, 165, 165, 0.2) 0%, transparent 1%),
+                radial-gradient(circle at 75% 65%, rgba(212, 165, 165, 0.25) 0%, transparent 1.5%),
+                radial-gradient(circle at 25% 85%, rgba(212, 165, 165, 0.2) 0%, transparent 1%);
+            pointer-events: none;
+            animation: sparkle 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0.4; }
+            100% { opacity: 1; }
         }
 
         .container {
@@ -1003,7 +1145,7 @@
     </section>
 
     <!-- 導入セクション -->
-    <section style="background: var(--light-gray);">
+    <section class="gradient-blush floral-accent">
         <div class="container">
             <h2 class="section-title">人生の脚本を書き換え<br><span>新しい自分を手にしたいあなたへ</span></h2>
 
@@ -1027,7 +1169,7 @@
     </section>
 
     <!-- 人生が停滞していた理由 -->
-    <section>
+    <section class="gradient-lavender sparkle-bg">
         <div class="container">
             <h2 class="section-title">あなたの人生が停滞していた、<br><span>たった一つの理由</span></h2>
 
@@ -1068,7 +1210,7 @@
     </section>
 
     <!-- 解決策 -->
-    <section style="background: var(--light-gray);">
+    <section class="gradient-cream floral-accent">
         <div class="container">
             <h2 class="section-title">人生の脚本を書き換える<br><span>簡単な方法とは？</span></h2>
 
@@ -1115,7 +1257,7 @@
     </section>
 
     <!-- なぜ名前を書くだけで -->
-    <section>
+    <section class="gradient-blush sparkle-bg">
         <div class="container">
             <h2 class="section-title">なぜ、「名前を書く」だけで<br><span>人生が好転していくのか？</span></h2>
 
@@ -1154,7 +1296,7 @@
     </section>
 
     <!-- プロフィール -->
-    <section class="profile-section">
+    <section class="profile-section gradient-lavender floral-accent">
         <div class="container">
             <h2 class="section-title">"人生を整える脚本家"<br><span>龍輝のプロフィール</span></h2>
 
@@ -1181,7 +1323,7 @@
     </section>
 
     <!-- 龍輝のストーリー -->
-    <section>
+    <section class="gradient-cream sparkle-bg">
         <div class="container">
             <h2 class="section-title">私の人生を好転させた<br><span>『人生の脚本』を書き換えるまでのストーリー</span></h2>
 
@@ -1357,7 +1499,7 @@
     </section>
 
     <!-- ビフォーアフター -->
-    <section>
+    <section class="gradient-blush floral-accent">
         <div class="container">
             <h2 class="section-title">人生の脚本を書き換えた人の<br><span>『ビフォーアフター』</span></h2>
 
@@ -1472,7 +1614,7 @@
     </section>
 
     <!-- おすすめの方 -->
-    <section>
+    <section class="gradient-lavender sparkle-bg">
         <div class="container">
             <h2 class="section-title">『人生の脚本』書き換えプログラム<br><span>への参加がおすすめの方</span></h2>
 
@@ -1492,7 +1634,7 @@
     </section>
 
     <!-- 受け取れるもの -->
-    <section style="background: var(--light-gray);">
+    <section class="gradient-cream floral-accent">
         <div class="container">
             <h2 class="section-title">あなたが<br>「『人生の脚本』書き換えプログラム」で<br><span>受け取れるものは……</span></h2>
 
@@ -1526,7 +1668,7 @@
     </section>
 
     <!-- Q&A -->
-    <section>
+    <section class="gradient-blush sparkle-bg">
         <div class="container">
             <h2 class="section-title">『人生の脚本』書き換えプログラム<br><span>Q&A</span></h2>
 
@@ -1621,7 +1763,7 @@
     </section>
 
     <!-- 追伸 -->
-    <section style="background: var(--light-gray);">
+    <section class="gradient-lavender floral-accent">
         <div class="container">
             <div class="postscript">
                 <h3>追伸 ── 龍輝からあなたへのメッセージ</h3>
