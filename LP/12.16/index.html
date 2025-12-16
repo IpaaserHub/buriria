@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「科学を超えた」メンタル調整術を体験する</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #000;
+        }
+
+        .lp-container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .lp-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .lp-gif {
+            position: absolute;
+            top: 83%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: auto;
+            z-index: 10;
+            cursor: pointer;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+
+        .lp-gif:hover {
+            animation: pulse 0.8s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="lp-container">
+        <img src="「科学を超えた」メンタル調整術を体験する.png" alt="「科学を超えた」メンタル調整術を体験する" class="lp-image">
+        <img src="「科学を超えた」メンタル調整術を体験する (480 x 200 px).svg" alt="メンタル調整術" class="lp-gif">
+    </div>
+</body>
+</html>
